@@ -281,3 +281,70 @@ After completing this module, you will be able to:
       the code merged into the main line.
 
     NB: This is a complete conflict resolution scenario.
+
+-----------------  Workflow ---------------------------->
+
+    - git pull                                    -> To get the latest code version
+    - git checkout -b feature/my-new-feature      -> create a new brach of the feature
+
+    - Let work in that new created branch by creating a readme file
+    - git add .                                   -> Add the file to staging area
+    - git restore --stage test.txt                -> Remove the file from the staging area
+    - git commit -m 'message'                     -> To add the file to local branch
+    - git push -u origin feature/my-new-feature   -> Allow others to see the file
+
+-----------------  Head  ---------------------------->
+
+    - cd .git                    -> Enter
+    - cat .git/HEAD              -> To see the path of the head
+    - cat /refs/heads/main       -> To see the id of the head branch
+    - git checkout testing       -> Switch to the testing branch 
+    - git branch                 -> To see the current branch
+
+
+------------------ git diff ----------------------------------->
+
+    - Git diff will compare the previous version of the file with your current one to 
+      find any differences. It will then tell you specifically what content has been 
+      removed as well as what content has been added to the file.
+
+    - git diff HEAD fileName             -> This will return the changes accross the file
+       - Mean remove 
+       + Newly added
+    - git log --pretty=online             -> All the commit 
+    - git diff id                         -> Check all the file
+
+    NB: git diff can also be used to check differences between branches 
+
+------------------ git blame <date> <file> ---------------------------->
+
+    - The git blame command is used to look at changes of a specific file and show the dates,
+      times, and users who made the changes.
+
+    - git blame Feature.js                 -> That will return all changes on the file
+
+![Git blame message](./images/2.png)
+
+------------------ Fork ---------------------------->
+
+    Example
+    Let's run through a typical flow of creating a new branch and adding some new content.
+    
+    Step 1: Clone the repository.
+    
+    Step 2: Create a new branch.
+    
+    git checkout -b test/forking-example
+    
+    Step 4: Create a new file and commit it to the repository.
+    
+    touch text.txt
+    git add .
+    git commit -m 'chore: testing'
+    
+    Step 5 Push the branch to your remote repository.
+    
+    git push -u origin test/forking-example
+    
+    Step 6: Go to Github and click the Compare & pull request button. If it's not available, 
+    click on the branch dropdown button and change it from main to the branch name of test/forking-example:
